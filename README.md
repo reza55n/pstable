@@ -3,6 +3,6 @@ Using this .jsx script file you can draw a table in Adobe Photoshop with desired
 
 To run the script: You can simply drag the file on Photoshop's main window.
 
-![Photoshop](https://www.alvandsoft.com/am/DrawTable.png)
+![Photoshop](https://www.alvandsoft.com/en/am/DrawTable.png)
 
-[File Direct Download](https://www.alvandsoft.com/am/DrawTable.jsx)
+[File Direct Download](https://www.alvandsoft.com/en/am/DrawTable.jsx)
