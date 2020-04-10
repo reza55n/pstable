@@ -5,4 +5,4 @@ To run the script: You can simply drag the file on Photoshop's main window.
 
 ![Photoshop](https://www.alvandsoft.com/en/am/DrawTable.png)
 
-[File Direct Download](https://www.alvandsoft.com/en/am/DrawTable.jsx)
+[File Direct Download](https://github.com/reza55n/pstable/raw/master/DrawTable.jsx)
