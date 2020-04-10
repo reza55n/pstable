@@ -1,8 +1,18 @@
 #target photoshop
 
-drawTable();
+var originalUnits = app.preferences.rulerUnits;
 
-function drawRECT(x,y,xx,yy,r,g,b,w)
+try{
+	app.preferences.rulerUnits = Units.PIXELS;
+	drawTable();
+}
+catch(err){
+}
+finally{
+	app.preferences.rulerUnits=originalUnits;
+}
+
+function drawRECT(x,y,xx,yy,r,g,b,w) //Codes generated using ScriptListener.8li
 {
 	var idMk = charIDToTypeID( "Mk  " );
 		var desc3 = new ActionDescriptor();
@@ -122,10 +132,12 @@ function drawRECT(x,y,xx,yy,r,g,b,w)
 	executeAction( idMk, desc3, DialogModes.NO );
 }
 
+
 function drawTable()
 {
 	var act = app.activeDocument;
 	var layer = act.activeLayer;
+	
 
 	var x=layer.bounds[0].as("px");
 	var y=layer.bounds[1].as("px");
@@ -140,13 +152,13 @@ function drawTable()
 		return;
 	}
 
-var Colour = app.foregroundColor;
-var R = Colour.rgb.red.toFixed(2);
-var G = Colour.rgb.green.toFixed(2);
-var B = Colour.rgb.blue.toFixed(2);
-var done=false;
+	var Colour = app.foregroundColor;
+	var R = Colour.rgb.red.toFixed(2);
+	var G = Colour.rgb.green.toFixed(2);
+	var B = Colour.rgb.blue.toFixed(2);
+	var done=false;
 
-var dlg = new Window('dialog','Draw a Table');
+	var dlg = new Window('dialog','Draw a Table');
     dlg.colorBtn = dlg.add('button',undefined,'Change Color');
 	dlg.add ("statictext", undefined, "Rows:");
 	var edRow = dlg.add ("edittext", [0,0,40,20],"4");
@@ -165,7 +177,8 @@ var dlg = new Window('dialog','Draw a Table');
 			B = foregroundColor.rgb.blue
 		}
 	}
-    dlg.ok.onClick = function(){done=true;dlg.close();}
+	
+    dlg.ok.onClick = function(){done=true; dlg.close();}
     dlg.show()
 
 	if (!done)
@@ -175,6 +188,13 @@ var dlg = new Window('dialog','Draw a Table');
 	var cWd = parseFloat(edCell.text); //Cell Width
 	var r = parseInt(edRow.text);
 	var c = parseInt(edCol.text);
+	
+	if (r<1 || c<1)
+	{
+		alert("Invalid rows/columns count.");
+		return;
+	}
+	
 	var rH = h/r; //Row Height
 	var cW = w/c; //Column Width
 
