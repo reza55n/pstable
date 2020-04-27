@@ -1,5 +1,6 @@
 #target photoshop
 
+
 var originalUnits = app.preferences.rulerUnits;
 
 try{
